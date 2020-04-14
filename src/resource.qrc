@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>assets/bullet_sound.wav</file>
+    </qresource>
+</RCC>
