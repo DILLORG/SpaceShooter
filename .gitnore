@@ -1,0 +1,14 @@
+#Object files.
+test/*.o
+src/*.o
+
+#qmake
+src/.qmake.stash
+src/Makefile
+test/.qmake.stash
+test/Makefile
+src/moc_*.*
+test/moc_*.*
+
+#QResource
+src/qrc_*.*
