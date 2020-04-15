@@ -1,6 +1,9 @@
 #Object files.
 test/*.o
 src/*.o
+src/src
+test/test
+
 
 #qmake
 src/.qmake.stash
@@ -9,6 +12,7 @@ test/.qmake.stash
 test/Makefile
 src/moc_*.*
 test/moc_*.*
+test/target_wrapper.sh
 
 #QResource
 src/qrc_*.*
