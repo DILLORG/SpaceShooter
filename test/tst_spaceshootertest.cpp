@@ -2,31 +2,34 @@
 
 // add necessary includes here
 
-class spaceShooterTest : public QObject
+class SpaceShooterTest : public QObject
 {
     Q_OBJECT
 
 public:
-    spaceShooterTest();
-    ~spaceShooterTest();
+    SpaceShooterTest();
+    ~SpaceShooterTest();
 
 private slots:
     void test_case1();
 
 };
 
-spaceShooterTest::spaceShooterTest(){
+SpaceShooterTest::SpaceShooterTest()
+{
 
 }
 
-spaceShooterTest::~spaceShooterTest(){
+SpaceShooterTest::~SpaceShooterTest()
+{
 
 }
 
-void spaceShooterTest::test_case1(){
+void SpaceShooterTest::test_case1()
+{
 
 }
 
-QTEST_APPLESS_MAIN(spaceShooterTest)
+QTEST_APPLESS_MAIN(SpaceShooterTest)
 
 #include "tst_spaceshootertest.moc"
