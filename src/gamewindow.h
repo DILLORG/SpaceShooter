@@ -4,21 +4,14 @@
 #include <QGraphicsScene>
 #include <QGraphicsItem>
 #include <QTimer>
-namespace Ui {
-    class GameWindow;
-}
-class GameWindow : public QMainWindow{
-    Q_OBJECT
-private slots:
-    void onGenerate();
+#include "sprite.h"
+class GameWindow{
 private:
-    Ui::GameWindow *ui;
-    QGraphicsScene* scene;
-    QTimer * animationTimer;
-    QTimer* generatorTimer;
-
+    int highScore;
+    Player* player;
 public:
-    explicit GameWindow(QWidget* parent = 0);
+    GameWindow(Player* player, int hs);
+    bool newHighScore();
 };
 
 #endif // GAMEWINDOW_H

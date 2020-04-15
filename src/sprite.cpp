@@ -1,16 +1,14 @@
 #include "sprite.h"
-#include <QDebug>
-#include <QKeyEvent>
-#include <QGraphicsItem>
-#include <QGraphicsScene>
-#include <QTimer>
-#include <QSound>
 #include "config.h"
+
 Sprite::Sprite(){
+
+}
+Player::Player(){
     setFlag(QGraphicsItem::ItemIsFocusable);
 }
 
-void Sprite::keyPressEvent(QKeyEvent *event){
+void Player::keyPressEvent(QKeyEvent *event){
 
     if(event->key() == Qt::Key_A && pos().x() > 0){
         setPos(x() - SHIP_SPEED_FACTOR, y());
@@ -29,6 +27,9 @@ void Sprite::keyPressEvent(QKeyEvent *event){
     }
 }
 
+void Player::addToScore(int value){
+    score += value;
+}
 Bullet::Bullet(){
     QTimer* timer = new QTimer();
     setRect(0, 0, 10, 50);

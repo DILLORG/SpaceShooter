@@ -10,7 +10,7 @@
 int main(int argc, char *argv[]){
     QApplication a(argc, argv);
     QGraphicsScene* scene = new QGraphicsScene();
-    Sprite* rect = new Sprite();
+    Player* rect = new Player();
     rect->setRect(0, 0, 50, 50);
     scene->addItem(rect);
     //Make rect focusable
