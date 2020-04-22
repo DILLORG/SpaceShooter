@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>assets/bullet_sound.wav</file>
+        <file>assets/ShipSpriteSheet.png</file>
     </qresource>
 </RCC>

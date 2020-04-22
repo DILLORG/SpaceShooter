@@ -1,7 +1,7 @@
 #include <QtTest>
 #include "sprite.h"
-#include "gamewindow.h"
-#include "gamewindow.cpp"
+#include "game.h"
+#include "game.cpp"
 // add necessary includes here
 
 class SpaceShooterTest : public QObject
@@ -30,8 +30,8 @@ SpaceShooterTest::~SpaceShooterTest()
 void SpaceShooterTest::test_high_score(){
     Player* player = new Player();
     player->addToScore(100);
-    GameWindow* gameWindow = new GameWindow(player, 100);
-    QVERIFY(gameWindow->newHighScore());
+    Game* game = new Game();
+    QVERIFY(game->newHighScore());
 
 }
 

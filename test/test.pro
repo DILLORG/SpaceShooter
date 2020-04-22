@@ -7,9 +7,9 @@ TEMPLATE = app
 
 SOURCES +=  tst_spaceshootertest.cpp \
             ../src/sprite.cpp
-            ../src/gamewindow.cpp
+            ../src/game.cpp
 
 HEADERS += ../src/sprite.h \
-           ../src/gamewindow.h
+           ../src/game.h
 
 INCLUDEPATH += ../src

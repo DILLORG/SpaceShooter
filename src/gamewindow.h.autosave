@@ -1,0 +1,27 @@
+#ifndef GAMEWINDOW_H
+#define GAMEWINDOW_H
+#include <QMainWindow>
+#include <QGraphicsScene>
+#include <QGraphicsItem>
+#include <QTimer>
+#include "sprite.h"
+namespace Ui{
+    class GameWindow;
+}
+class GameWindow : public QMainWindow{
+Q_OBJECT
+private slots:
+    void onGenerate();
+private:
+    Ui::GameWindow* ui;
+    QGraphicsScene* scene;
+    QTimer* animationTimer;
+    QTimer* genratorTimer;
+    int highScore;
+    Player* player;
+public:
+    GameWindow(QWidget* parent =0);
+    bool newHighScore();
+};
+
+#endif // GAMEWINDOW_H
