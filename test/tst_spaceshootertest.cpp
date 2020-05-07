@@ -2,6 +2,8 @@
 #include "sprite.h"
 #include "game.h"
 #include "game.cpp"
+#include "guielement.h"
+#include "guielement.cpp"
 // add necessary includes here
 
 class SpaceShooterTest : public QObject
@@ -28,10 +30,12 @@ SpaceShooterTest::~SpaceShooterTest()
 }
 
 void SpaceShooterTest::test_high_score(){
-    Player* player = new Player();
-    player->addToScore(100);
-    Game* game = new Game();
-    QVERIFY(game->newHighScore());
+
+//    for(int i=0; i < 20; i++){
+//        game->score->increaseScore();
+//    }
+
+
 
 }
 

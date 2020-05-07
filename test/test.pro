@@ -8,8 +8,10 @@ TEMPLATE = app
 SOURCES +=  tst_spaceshootertest.cpp \
             ../src/sprite.cpp
             ../src/game.cpp
+            ../src/guielement.cpp
 
 HEADERS += ../src/sprite.h \
            ../src/game.h
+           ../src/guielement.h
 
 INCLUDEPATH += ../src

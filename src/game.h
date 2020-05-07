@@ -3,24 +3,42 @@
 #include <QMainWindow>
 #include <QGraphicsScene>
 #include <QGraphicsView>
-#include <QGraphicsItem>
 #include <QTimer>
 #include "sprite.h"
-
+#include "guielement.h"
 class Game : public QGraphicsView{
 Q_OBJECT
 private slots:
-    void onGenerate();
+    void spawn();
+    void drawStarField();
+    void exitGame(){exit(0);};
 private:
-    QGraphicsScene* scene;
-    QTimer* animationTimer;
-    QTimer* genratorTimer;
     int highScore;
+    QGraphicsScene* scene;
+    QTimer* spawnTimer;
+    QTimer* starTimer;
+    QTimer* gameOverTimer;
     Player* player;
-public:
+    std::list <Bullet*> bullets;
+    QSound* sfx;
     Game();
-    bool newHighScore();
-    ~Game(){};
-};
+    static Game* p_Instance;
 
+public:
+    Score* score;
+    static Game* instance(){
+        if(p_Instance==0){
+            p_Instance = new Game();
+        }
+        return p_Instance;
+    }
+    bool newHighScore();
+    void keyPressEvent(QKeyEvent* event);
+    void initStarField();
+    void gameOver();
+    void playSound(QString path);
+
+
+};
+typedef Game TheGame;
 #endif // GAMEWINDOW_H

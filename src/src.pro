@@ -17,12 +17,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     game.cpp \
+    guielement.cpp \
     main.cpp \
     sprite.cpp
 
 HEADERS += \
     config.h \
     game.h \
+    guielement.h \
     sprite.h
 
 FORMS +=

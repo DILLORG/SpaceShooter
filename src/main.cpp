@@ -8,10 +8,10 @@
 #include "game.h"
 #include <iostream>
 #include <QDebug>
+
 int main(int argc, char *argv[]){
 
     QApplication a(argc, argv);
-    Game* game = new Game();
-    game->show();
+    TheGame::instance()->show();
     return a.exec();
 }

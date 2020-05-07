@@ -1,6 +1,9 @@
 <RCC>
     <qresource prefix="/">
         <file>assets/bullet_sound.wav</file>
-        <file>assets/ShipSpriteSheet.png</file>
+        <file>assets/blow_up.wav</file>
+        <file>assets/ship_sprite.png</file>
+        <file>assets/enemy_sprite.png</file>
+        <file>assets/bullet_sprite.png</file>
     </qresource>
 </RCC>
