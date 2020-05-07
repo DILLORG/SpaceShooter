@@ -17,7 +17,7 @@
 class Sprite : public QObject{
 Q_OBJECT
 public:
-    Sprite();
+    Sprite(){};
 };
 
 class Star : public Sprite, public QGraphicsRectItem{
@@ -30,13 +30,8 @@ public slots:
 
 class Player : public Sprite, public QGraphicsPixmapItem{
 Q_OBJECT
-private:
-    QSound* sfx;
 public:
     Player();
-public slots:
-    void draw();
-
 };
 
 class Bullet : public Sprite, public QGraphicsPixmapItem{
@@ -55,14 +50,12 @@ public slots:
 class Enemy : public Sprite, public QGraphicsPixmapItem{
     Q_OBJECT
 private:
-    int value;
-    int currentFrame;
+
     QTimer* timer;
     QList <QGraphicsItem*> collisions;
 
 public:
     Enemy();
-    int getValue(){return this->value;};
 
 public slots:
     void move();

@@ -4,10 +4,6 @@
 #include <iostream>
 #include "game.h"
 
-
-Sprite::Sprite(){
-
-}
 Star::Star(){
     QTimer* timer = new QTimer();
     int randPos = rand() % (WINDOW_WIDTH - STAR_WIDTH);
@@ -33,10 +29,6 @@ void Star::move(){
 Player::Player(){
     setFlag(QGraphicsItem::ItemIsFocusable);
     setPixmap(QPixmap(":/assets/ship_sprite.png"));
-}
-
-void Player::draw(){
-
 }
 
 Bullet::Bullet(){
@@ -65,8 +57,7 @@ void Bullet::move(){
             return;
         }
     }
-
-    this->setPos(x(), y() - 10);
+    setPos(x(), y() - 10);
     //Remove and delete items that clear our screen.
     if((pos().y() < 0)){
         scene()->removeItem(this);
@@ -76,8 +67,6 @@ void Bullet::move(){
 }
 
 Enemy::Enemy(){
-    currentFrame = 0;
-
 
     //Set random x position
     int randPos = rand() % (WINDOW_WIDTH - 50);
@@ -89,8 +78,6 @@ Enemy::Enemy(){
     timer->start(ENEMY_SPEED);
 
 }
-
-
 
 void Enemy::move(){
     setPos(x(), y() + 5);
