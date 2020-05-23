@@ -1,6 +1,8 @@
 #include "guielement.h"
+# include <QFontDatabase>
 GuiElement::GuiElement(){
-    font = new QFont("times", FONT_SIZE);
+    QFontDatabase::addApplicationFont(FONT);
+    font = new QFont("Thintel", FONT_SIZE);
     setDefaultTextColor(QColor(255, 255, 255));
     setFont(*font);
 }
@@ -18,5 +20,3 @@ void Score::increaseScore(){
     score++;
     GuiElement::setText(QString("Score:" + QString::number(score)));
 }
-
-

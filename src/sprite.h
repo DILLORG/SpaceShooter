@@ -14,52 +14,62 @@
 #include <QObject>
 #include <QList>
 #include <stdlib.h>
-class Sprite : public QObject{
-Q_OBJECT
+class AnimatedSprite: public QGraphicsItem{
+private:
+    QPixmap* spriteSheet;
+    int frameSize;
+    int currentFrame;
+    int startFrame;
+    int endFrame;
+    bool repeat;
+
 public:
-    Sprite(){};
+    AnimatedSprite(const char* p, int f, int s, int e);
+    QRectF boundingRect() const;
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
+    void changeAnimation(int s, int e);
+    void nextFrame();
+    void setRepeat(bool value){repeat = value;};
+    virtual bool isHit(){return false;};
+
+
 };
 
-class Star : public Sprite, public QGraphicsRectItem{
-Q_OBJECT
+class Star : public QGraphicsRectItem{
 public:
     Star();
-public slots:
-    void move();
 };
 
-class Player : public Sprite, public QGraphicsPixmapItem{
-Q_OBJECT
+class Bullet : public QGraphicsRectItem{
 public:
-    Player();
+    Bullet();
 };
 
-class Bullet : public Sprite, public QGraphicsPixmapItem{
-Q_OBJECT
+class Player : public AnimatedSprite{
 private:
     QList<QGraphicsItem*> collisions;
 public:
-    Bullet();
-
-
-public slots:
-    void move();
-
+    Player(const char* path, int f, int s, int e);
+    bool isHit();
+    ~Player(){}
 };
 
-class Enemy : public Sprite, public QGraphicsPixmapItem{
-    Q_OBJECT
+class Enemy : public AnimatedSprite{
 private:
-
-    QTimer* timer;
     QList <QGraphicsItem*> collisions;
 
 public:
-    Enemy();
-
-public slots:
-    void move();
-
+    Enemy(const char* path, int f, int s, int e);
+    bool isHit();
+    ~Enemy(){};
 
 };
+
+class Explosion : public AnimatedSprite{
+public:
+    Explosion(const char* path, int f, int s, int e);
+    void nextFrame();
+    ~Explosion(){};
+};
+
 #endif // SPRITE_H

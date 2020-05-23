@@ -12,15 +12,23 @@ private slots:
     void spawn();
     void drawStarField();
     void exitGame(){exit(0);};
+    void update();
+    void checkCollisions();
+    void draw();
 private:
     int highScore;
     QGraphicsScene* scene;
-    QTimer* spawnTimer;
-    QTimer* starTimer;
-    QTimer* gameOverTimer;
     Player* player;
-    std::list <Bullet*> bullets;
+    QList <Bullet*> bullets;
+    QList <Star*> stars;
+    QList<Enemy*> enemies;
     QSound* sfx;
+    QTimer* starSpawnTimer;
+    QTimer* enemySpawnTimer;
+    QTimer* updateTimer;
+    QTimer* drawTimer;
+    QTimer* collisionTimer;
+    QTimer* gameOverTimer;
     Game();
     static Game* p_Instance;
 

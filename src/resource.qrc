@@ -3,7 +3,11 @@
         <file>assets/bullet_sound.wav</file>
         <file>assets/blow_up.wav</file>
         <file>assets/ship_sprite.png</file>
+        <file>assets/ship_sprite_sheet.png</file>
         <file>assets/enemy_sprite.png</file>
+        <file>assets/enemy_sprite_sheet.png</file>
         <file>assets/bullet_sprite.png</file>
+        <file>assets/explosion_sprite_sheet.png</file>
+        <file>assets/Thintel.ttf</file>
     </qresource>
 </RCC>
