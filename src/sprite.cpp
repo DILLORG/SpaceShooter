@@ -27,7 +27,7 @@ void AnimatedSprite::changeAnimation(int s, int e){
     endFrame = e;
 }
 
-void AnimatedSprite::nextFrame(){
+void AnimatedSprite::draw(){
     currentFrame += frameSize;
     if(currentFrame >= endFrame && repeat)
         currentFrame = startFrame;
@@ -81,5 +81,5 @@ bool Enemy::isHit(){
 }
 
 Explosion::Explosion(const char* p, int f, int s, int e) : AnimatedSprite(p, f, s, e){
-
+  AnimatedSprite::setRepeat(false);
 }

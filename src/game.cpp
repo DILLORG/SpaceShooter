@@ -84,7 +84,13 @@ void Game::drawStarField(){
 
 //Update position of game objects
 void Game::update(){
-
+    for(int i=0; i < explosions.size(); i++){
+      explosions[i]->setPos(explosions[i]->x(), explosions[i]->y()+10);
+      if(explosions[i]->pos().y() > WINDOW_HEIGHT){
+        scene->removeItem(explosions[i]);
+        explosions.removeAt(i);
+      }
+    }
     for(int i=0; i < enemies.size(); i++){
         enemies[i]->setPos(enemies[i]->x(), enemies[i]->y() + 5);
         if(enemies[i]->pos().y()> WINDOW_HEIGHT){
@@ -113,10 +119,13 @@ void Game::update(){
 //Draw next frame on sprite sheet.
 void Game::draw(){
     for(auto& enemy : enemies){
-        enemy->nextFrame();
+        enemy->draw();
+    }
+    for(auto& explosion : explosions){
+      explosion->draw();
     }
 
-    player->nextFrame();
+    player->draw();
 }
 
 //Check collisions between game objects.
@@ -125,8 +134,13 @@ void Game::checkCollisions(){
         if(enemies[i]->isHit()){
             Game::playSound(BLOW_UP);
             scene->removeItem(enemies[i]);
+            Explosion* explosion = new Explosion(EXPLOSION_SPRITE, 50, 0, 150);
+            explosion->setPos(enemies[i]->pos());
+            explosions.append(explosion);
             enemies.removeAt(i);
             score->increaseScore();
+            scene->addItem(explosion);
+
         }
     }
 
@@ -136,8 +150,9 @@ void Game::checkCollisions(){
         Explosion* explosion = new Explosion(EXPLOSION_SPRITE, 50, 0, 150);
         explosion->setPos(player->pos());
         scene->addItem(explosion);
-//        gameOverTimer->start(3000);
-//        gameOver();
+        explosions.append(explosion);
+        gameOverTimer->start(3000);
+        gameOver();
 
     }
 

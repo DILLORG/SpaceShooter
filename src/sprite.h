@@ -28,7 +28,7 @@ public:
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
     void changeAnimation(int s, int e);
-    void nextFrame();
+    void draw();
     void setRepeat(bool value){repeat = value;};
     virtual bool isHit(){return false;};
 
@@ -68,7 +68,6 @@ public:
 class Explosion : public AnimatedSprite{
 public:
     Explosion(const char* path, int f, int s, int e);
-    void nextFrame();
     ~Explosion(){};
 };
 

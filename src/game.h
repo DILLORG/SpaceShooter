@@ -22,6 +22,7 @@ private:
     QList <Bullet*> bullets;
     QList <Star*> stars;
     QList<Enemy*> enemies;
+    QList<Explosion*> explosions;
     QSound* sfx;
     QTimer* starSpawnTimer;
     QTimer* enemySpawnTimer;
