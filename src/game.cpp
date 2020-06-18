@@ -22,6 +22,9 @@ void Game::changeState(int stateNum){
         case 1:
             scene = new GameOverState();
          break;
+        case 2:
+          scene = new MenuState();
+        break;
     }
     this->setScene(scene);
 
