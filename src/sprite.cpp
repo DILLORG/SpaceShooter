@@ -1,7 +1,5 @@
 #include "sprite.h"
 #include "config.h"
-#include <exception>
-#include <iostream>
 #include "game.h"
 AnimatedSprite::AnimatedSprite(const char* p, int f, int s, int e){
     spriteSheet = new QPixmap(p);
@@ -36,17 +34,21 @@ void AnimatedSprite::draw(){
 }
 
 Star::Star(){
-    setPos(rand() % ( WINDOW_WIDTH - STAR_WIDTH) , 0);
+    this->setPos(rand() % ( WINDOW_WIDTH - STAR_WIDTH) , 0);
     //This makes it appear that other objects are on top of the star field.
-    setZValue(-1);
-    setRect(0, 0, STAR_WIDTH, STAR_HEIGHT);
-    setBrush(QColor(255, 255, 255));
+    this->setZValue(-1);
+    this->setRect(0, 0, STAR_WIDTH, STAR_HEIGHT);
+    this->setBrush(QColor(255, 255, 255));
+}
+
+void Star::updatePos(){
+    this->setPos(this->x(), this->y() + 5);
 }
 
 
 
 Player::Player(const char* p, int f, int s, int e) : AnimatedSprite(p, f, s, e){
-    setFlag(QGraphicsItem::ItemIsFocusable);
+    this->setFlag(QGraphicsItem::ItemIsFocusable);
 
 }
 
@@ -62,6 +64,10 @@ bool Player::isHit(){
 Bullet::Bullet(){
     setRect(0, 0, BULLET_WIDTH, BULLET_HEIGHT);
     setBrush(QColor(34, 0, 255));
+}
+
+void Bullet::updatePos(){
+    this->setPos(this->x(), this->y() - 10);
 }
 
 
@@ -80,6 +86,16 @@ bool Enemy::isHit(){
     return false;
 }
 
+void Enemy::updatePos(){
+    this->setPos(this->x(), this->y() +5);
+}
+
 Explosion::Explosion(const char* p, int f, int s, int e) : AnimatedSprite(p, f, s, e){
-  AnimatedSprite::setRepeat(false);
+
+    AnimatedSprite::setRepeat(false);
+
+}
+
+void Explosion::updatePos(){
+    this->setPos(this->x(), this->y() + 10);
 }

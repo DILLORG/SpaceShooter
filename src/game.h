@@ -3,33 +3,15 @@
 #include <QMainWindow>
 #include <QGraphicsScene>
 #include <QGraphicsView>
-#include <QTimer>
-#include "sprite.h"
-#include "guielement.h"
+#include <QSound>
+#include <QFontDatabase>
+#include "state.h"
+#include "config.h"
 class Game : public QGraphicsView{
-Q_OBJECT
-private slots:
-    void spawn();
-    void drawStarField();
-    void exitGame(){exit(0);};
-    void update();
-    void checkCollisions();
-    void draw();
 private:
-    int highScore;
     QGraphicsScene* scene;
-    Player* player;
-    QList <Bullet*> bullets;
-    QList <Star*> stars;
-    QList<Enemy*> enemies;
-    QList<Explosion*> explosions;
     QSound* sfx;
-    QTimer* starSpawnTimer;
-    QTimer* enemySpawnTimer;
-    QTimer* updateTimer;
-    QTimer* drawTimer;
-    QTimer* collisionTimer;
-    QTimer* gameOverTimer;
+
     Game();
     static Game* p_Instance;
 
@@ -41,10 +23,7 @@ public:
         }
         return p_Instance;
     }
-    bool newHighScore();
-    void keyPressEvent(QKeyEvent* event);
-    void initStarField();
-    void gameOver();
+    void changeState(int stateNum);
     void playSound(QString path);
 
 

@@ -19,13 +19,15 @@ SOURCES += \
     game.cpp \
     guielement.cpp \
     main.cpp \
-    sprite.cpp
+    sprite.cpp \
+    state.cpp
 
 HEADERS += \
     config.h \
     game.h \
     guielement.h \
-    sprite.h
+    sprite.h \
+    state.h
 
 FORMS +=
 
